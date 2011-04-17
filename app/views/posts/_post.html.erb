@@ -1,0 +1,12 @@
+<article id="post-<%= post.id %>">
+	<h2><%= link_to post.title, post %></h2>
+	<date><%= post.published_at %>
+	</date>
+	<%= simple_format(post.body) %>
+	<% if post.comments.empty? %>
+		<p><%= link_to 'Add a Comment?', post %></p>
+	<% else %>
+		<p><%= link_to "Comment? (#{post.comments.count})", post %></p>
+	<% end %>
+	<p><%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></p>	
+</article>
